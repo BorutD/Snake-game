@@ -11,7 +11,7 @@ var Game_Over = {
         homeButton = game.add.button(400, 300, 'home', this.Home, this);
         homeButton.anchor.set(0.5);
 
-        game.add.text(285, 350, "Your score:", { font: "30px Courier New", fontWeight: "bold", fill: "#FFF", align: "center"});
+        game.add.text(285, 350, "Your score: ", { font: "30px Courier New", fontWeight: "bold", fill: "#FFF", align: "center"});
         game.add.text(510, 350, score, { font: "30px Courier New", fontWeight: "bold", fill: "#FFF" });
         
         if(score > parseInt(localStorage.getItem("bestScore"))) {

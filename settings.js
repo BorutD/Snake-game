@@ -54,18 +54,26 @@ var Settings = {
         selectLevel = game.add.text(450, 350, "Select level: ", textStyle);
         selectLevel.anchor.set(1.0);
 
-        easy = game.add.button(550, 330, 'easy', this.saveData, ["level", "Easy"]);
-        easy.anchor.set(0.5);
-        medium = game.add.button(550, 380, 'medium', this.saveData, ["level", "Medium"]);
-        medium.anchor.set(0.5);
-        hard = game.add.button(550, 430, 'hard', this.saveData, ["level", "Hard"]);
-        hard.anchor.set(0.5);
-        impossible = game.add.button(550, 480, 'impossible', this.saveData, ["level", "Impossible"]);
-        impossible.anchor.set(0.5);
+		var levelEasy = Utils.createGraphicsButton(510, 315, 80, 30, 0x1AB0D2, 1);
+		game.add.text(550, 330, "Easy", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
+		levelEasy.events.onInputDown.add(this.saveData, ["level", "Easy"]);
 
-        // Go back button
-        go_back = game.add.button(100, 550, 'go_back', this.goBack, this);
-        go_back.anchor.set(0.5);
+		var levelMedium = Utils.createGraphicsButton(490, 365, 120, 30, 0x1AB0D2, 1);
+		game.add.text(550, 380, "Medium", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
+		levelMedium.events.onInputDown.add(this.saveData, ["level", "Medium"]);
+
+		var levelHard = Utils.createGraphicsButton(510, 415, 80, 30, 0x1AB0D2, 1);
+		game.add.text(550, 430, "Hard", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
+		levelHard.events.onInputDown.add(this.saveData, ["level", "Hard"]);
+
+		var levelImpossible = Utils.createGraphicsButton(460, 465, 185, 30, 0x1AB0D2, 1);
+		game.add.text(550, 480, "Impossible", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
+		levelImpossible.events.onInputDown.add(this.saveData, ["level", "Impossible"]);
+
+        // Back button
+		var btnBack = Utils.createGraphicsButton(90, 510, 80, 30, 0x1AB0D2, 1, 2, 0xFFFFFF);
+		game.add.text(130, 528, "Back", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
+		btnBack.events.onInputDown.add(this.goBack, this);
     },
 
     saveData: function() {

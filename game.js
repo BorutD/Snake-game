@@ -5,7 +5,7 @@ var snake, food, squareSize, score, speed, snakeColor, foodColor,
 var Game = {
     preload: function () {
         game.load.image('black', 'images/square_black.png');
-        game.load.image('white', 'images/square_white.png');
+		game.load.image('white', 'images/square_white.png');
     },
 
     create: function() {

@@ -1,19 +1,20 @@
 {
-	"strings" :{ 
-		"yourScore": "Your score: ", 
-		"bestScore": "Best score: ",
-		"score": "Score: ",
+	"strings" : {
+		"yourScore": "Your score",
+		"bestScore": "Best score",
+		"score": "Score",
 		"level": "Level",
 		"instructions": "Instructions",
 		"snakeGame": "SNAKE GAME",
 		"settings": "Settings",
-		"snakeColorSelect": "Select color of the snake: ",
-		"foodColorSelect": "Select color of the food: ",
-		"bgColorSelect": "Select background color: ",
-		"levelSelect": "Select level: ",
+		"snakeColorSelect": "Select color of the snake",
+		"foodColorSelect": "Select color of the food",
+		"bgColorSelect": "Select background color",
+		"levelSelect": "Select level",
 		"btnEasy": "Easy",
 		"btnMedium": "Medium",
 		"btnHard": "Hard",
-		"btnImpossible": "Impossible"
+		"btnImpossible": "Impossible", 
+		"btnBack" : "Back"
 	}
 }

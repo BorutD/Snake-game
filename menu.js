@@ -1,8 +1,7 @@
+var strings = {};
 var Menu = {
     preload: function () {
-        game.load.image('play', 'images/Buttons/play_game.png');
-        game.load.image('settings', 'images/Buttons/settings.png');
-        game.load.image('instructions', 'images/Buttons/instructions.png');
+		game.load.script('Utils', 'Utils.js');
     },
 
     create: function () {
@@ -22,7 +21,9 @@ var Menu = {
             localStorage.setItem("bestScore", "0");
         }
         
-        game.stage.backgroundColor = localStorage.getItem("bg_color");
+		game.stage.backgroundColor = localStorage.getItem("bg_color");
+		
+		this.getLanguage();
 
         // Title
         var titleStyle = {font: "64px Courier New", fontWeight: "bold", fill: "#FFF", align: "center"};
@@ -30,16 +31,19 @@ var Menu = {
         title.anchor.set(0.5);
         
         // Play button
-        playButton = game.add.button(400, 300, 'play', this.startGame, this);
-        playButton.anchor.set(0.5);
+		var playButton = Utils.createGraphicsButton(340, 275, 120, 50, 0x1AB0D2, 1);
+		game.add.text(400, 300, "Play", {font: "45px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
+		playButton.events.onInputDown.add(this.startGame, this);
 
         // Settings button
-        settingsButton = game.add.button(400, 400, 'settings', this.settings, this);
-        settingsButton.anchor.set(0.5);
+		var settingsButton = Utils.createGraphicsButton(290, 375, 220, 50, 0x1AB0D2, 1);
+		game.add.text(400, 400, "Settings", {font: "45px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
+		settingsButton.events.onInputDown.add(this.settings, this);
 
         // Instructions button
-        instructionsButton = game.add.button(400, 500, 'instructions', this.instructions, this);
-        instructionsButton.anchor.set(0.5);
+		var instructionsButton = Utils.createGraphicsButton(235, 475, 330, 50, 0x1AB0D2, 1);
+		game.add.text(400, 500, "Instructions", {font: "45px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
+		instructionsButton.events.onInputDown.add(this.instructions, this);
     },
 
     startGame: function () {
@@ -52,6 +56,15 @@ var Menu = {
 
     instructions: function () {
         this.state.start('Instructions');
-    }
-
+	},
+	
+	getLanguage: function () {
+		$.getJSON('lang/lang.json', function(result) {
+			if (result.Status && result.Status.ErrCode){
+				console.log("Error getting lang.json");
+			} else {
+				strings = result;
+			}
+		});
+	}
 };

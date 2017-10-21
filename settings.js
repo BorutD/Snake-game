@@ -1,13 +1,5 @@
 var snakeColor, foodColor, speed;
 var Settings = {
-    preload: function() {
-        game.load.image('square_black', 'images/square_black.png');
-        game.load.image('square_white', 'images/square_white.png');
-        game.load.image('bg_blue', 'images/Background/bg_blue.png');
-        game.load.image('bg_green', 'images/Background/bg_green.png');
-        game.load.image('bg_red', 'images/Background/bg_red.png');
-    },
-
     create: function() {
         game.stage.backgroundColor = localStorage.getItem("bg_color");
 
@@ -38,35 +30,35 @@ var Settings = {
         selectBgColor = game.add.text(450, 300, "Select background color: ", textStyle);
         selectBgColor.anchor.set(1.0);
 
-        bg_blue = game.add.button(470, 282, 'bg_blue', this.saveData, ["bg_color", "#1AB0D2"]);
+        bg_blue = game.add.button(470, 282, 'bg_blue', this.saveData, ["bg_color", "0x1AB0D2"]);
         bg_blue.anchor.set(0.5);
-        bg_green = game.add.button(510, 282, 'bg_green', this.saveData, ["bg_color", "#19C20E"]);
+        bg_green = game.add.button(510, 282, 'bg_green', this.saveData, ["bg_color", "0x19C20E"]);
         bg_green.anchor.set(0.5);
-        bg_red = game.add.button(550, 282, 'bg_red', this.saveData, ["bg_color", "#F23810"]);
+        bg_red = game.add.button(550, 282, 'bg_red', this.saveData, ["bg_color", "0xF23810"]);
         bg_red.anchor.set(0.5);
 
         // Select Level
         selectLevel = game.add.text(450, 350, "Select level: ", textStyle);
         selectLevel.anchor.set(1.0);
 
-		var levelEasy = Utils.createGraphicsButton(510, 315, 80, 30, 0x1AB0D2, 1);
+		var levelEasy = Utils.createGraphicsButton(510, 315, 80, 30, bgColor, 1);
 		game.add.text(550, 330, "Easy", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		levelEasy.events.onInputDown.add(this.saveData, ["level", "Easy"]);
 
-		var levelMedium = Utils.createGraphicsButton(490, 365, 120, 30, 0x1AB0D2, 1);
+		var levelMedium = Utils.createGraphicsButton(490, 365, 120, 30, bgColor, 1);
 		game.add.text(550, 380, "Medium", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		levelMedium.events.onInputDown.add(this.saveData, ["level", "Medium"]);
 
-		var levelHard = Utils.createGraphicsButton(510, 415, 80, 30, 0x1AB0D2, 1);
+		var levelHard = Utils.createGraphicsButton(510, 415, 80, 30, bgColor, 1);
 		game.add.text(550, 430, "Hard", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		levelHard.events.onInputDown.add(this.saveData, ["level", "Hard"]);
 
-		var levelImpossible = Utils.createGraphicsButton(460, 465, 185, 30, 0x1AB0D2, 1);
+		var levelImpossible = Utils.createGraphicsButton(460, 465, 185, 30, bgColor, 1);
 		game.add.text(550, 480, "Impossible", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		levelImpossible.events.onInputDown.add(this.saveData, ["level", "Impossible"]);
 
         // Back button
-		var btnBack = Utils.createGraphicsButton(90, 510, 80, 30, 0x1AB0D2, 1);
+		var btnBack = Utils.createGraphicsButton(90, 510, 80, 30, bgColor, 1);
 		game.add.text(130, 528, "Back", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		btnBack.events.onInputDown.add(this.goBack, this);
     },

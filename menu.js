@@ -1,7 +1,14 @@
 var strings = {};
+var bgColor;
+
 var Menu = {
     preload: function () {
 		game.load.script('Utils', 'Utils.js');
+        game.load.image('bg_blue', 'images/Background/bg_blue.png');
+        game.load.image('bg_green', 'images/Background/bg_green.png');
+        game.load.image('bg_red', 'images/Background/bg_red.png');
+        game.load.image('square_black', 'images/square_black.png');
+        game.load.image('square_white', 'images/square_white.png');
     },
 
     create: function () {
@@ -21,7 +28,8 @@ var Menu = {
             localStorage.setItem("bestScore", "0");
         }
         
-		game.stage.backgroundColor = localStorage.getItem("bg_color");
+		bgColor = localStorage.getItem("bg_color");
+		game.stage.backgroundColor = bgColor;
 		
 		this.getLanguage();
 
@@ -31,17 +39,17 @@ var Menu = {
         title.anchor.set(0.5);
         
         // Play button
-		var playButton = Utils.createGraphicsButton(340, 275, 120, 50, 0x1AB0D2, 1);
+		var playButton = Utils.createGraphicsButton(340, 275, 120, 50, bgColor, 1);
 		game.add.text(400, 300, "Play", {font: "45px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		playButton.events.onInputDown.add(this.startGame, this);
 
         // Settings button
-		var settingsButton = Utils.createGraphicsButton(290, 375, 220, 50, 0x1AB0D2, 1);
+		var settingsButton = Utils.createGraphicsButton(290, 375, 220, 50, bgColor, 1);
 		game.add.text(400, 400, "Settings", {font: "45px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		settingsButton.events.onInputDown.add(this.settings, this);
 
         // Instructions button
-		var instructionsButton = Utils.createGraphicsButton(235, 475, 330, 50, 0x1AB0D2, 1);
+		var instructionsButton = Utils.createGraphicsButton(235, 475, 330, 50, bgColor, 1);
 		game.add.text(400, 500, "Instructions", {font: "45px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		instructionsButton.events.onInputDown.add(this.instructions, this);
     },

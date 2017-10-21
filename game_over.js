@@ -1,12 +1,12 @@
 var Game_Over = {
     create: function() {
-        game.stage.backgroundColor = localStorage.getItem("bg_color");
+        game.stage.backgroundColor = bgColor;
         
-		var playButton = Utils.createGraphicsButton(290, 175, 220, 50, 0x1AB0D2, 1);
+		var playButton = Utils.createGraphicsButton(290, 175, 220, 50, bgColor, 1);
 		game.add.text(400, 200, "Play Again", {font: "35px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		playButton.events.onInputDown.add(this.startGame, this);
 
-		var homeButton = Utils.createGraphicsButton(350, 270, 100, 40, 0x1AB0D2, 1);
+		var homeButton = Utils.createGraphicsButton(350, 270, 100, 40, bgColor, 1);
 		game.add.text(400, 290, "Home", {font: "35px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		homeButton.events.onInputDown.add(this.Home, this);
 

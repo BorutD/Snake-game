@@ -3,11 +3,6 @@ var Settings = {
     preload: function() {
         game.load.image('square_black', 'images/square_black.png');
         game.load.image('square_white', 'images/square_white.png');
-        game.load.image('easy', 'images/Speed/Easy.png');
-        game.load.image('medium', 'images/Speed/Medium.png');
-        game.load.image('hard', 'images/Speed/Hard.png');
-        game.load.image('impossible', 'images/Speed/Impossible.png');
-        game.load.image('go_back', 'images/Buttons/go_back.png');
         game.load.image('bg_blue', 'images/Background/bg_blue.png');
         game.load.image('bg_green', 'images/Background/bg_green.png');
         game.load.image('bg_red', 'images/Background/bg_red.png');
@@ -16,12 +11,12 @@ var Settings = {
     create: function() {
         game.stage.backgroundColor = localStorage.getItem("bg_color");
 
-        var titleStyle = {font: "45px Courier New", fontWeight: "bold", fill: "#FFF", align: "center"};
+        var titleStyle = {font: "45px Courier", fontWeight: "bold", fill: "#FFF", align: "center"};
         title = game.add.text(400, 100, "Settings", titleStyle);
         title.anchor.set(0.5);
 
         // Select Snake Color
-        var textStyle = {font: "25px Courier New", fontWeight: "bold", fill: "#FFF"};
+        var textStyle = {font: "25px Courier", fontWeight: "bold", fill: "#FFF"};
         selectSnakeColor = game.add.text(450, 200, "Select color of the snake: ", textStyle);
         selectSnakeColor.anchor.set(1.0);
 
@@ -71,7 +66,7 @@ var Settings = {
 		levelImpossible.events.onInputDown.add(this.saveData, ["level", "Impossible"]);
 
         // Back button
-		var btnBack = Utils.createGraphicsButton(90, 510, 80, 30, 0x1AB0D2, 1, 2, 0xFFFFFF);
+		var btnBack = Utils.createGraphicsButton(90, 510, 80, 30, 0x1AB0D2, 1);
 		game.add.text(130, 528, "Back", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		btnBack.events.onInputDown.add(this.goBack, this);
     },

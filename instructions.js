@@ -7,8 +7,8 @@ var Instructions = {
         title.anchor.set(0.5);
 
 		// Back button
-		var btnBack = Utils.createGraphicsButton(70, 500, 120, 50, 0x1AB0D2, 1);
-		game.add.text(130, 528, "Go Back", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
+		var btnBack = Utils.createGraphicsButton(90, 510, 80, 30, 0x1AB0D2, 1);
+		game.add.text(130, 528, "Back", {font: "30px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
 		btnBack.events.onInputDown.add(this.goBack, this);
     },
 

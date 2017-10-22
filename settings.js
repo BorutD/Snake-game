@@ -12,30 +12,34 @@ var Settings = {
         selectSnakeColor = game.add.text(450, 200, "Select color of the snake: ", textStyle);
         selectSnakeColor.anchor.set(1.0);
 
-        snakeWhite = game.add.button(470, 182, 'square_white', this.saveData, ["snakeColor", "white"]);
-        snakeWhite.anchor.set(0.5);
-        snakeBlack = game.add.button(510, 182, 'square_black', this.saveData, ["snakeColor", "black"]);
-        snakeBlack.anchor.set(0.5);
+		var snakeWhite = Utils.createGraphicsButton(460, 172, 19, 19, 0xFFFFFF, 1);
+		snakeWhite.events.onInputDown.add(this.saveData, ["snakeColor", "white"]);
+		
+		var snakeBlack = Utils.createGraphicsButton(500, 172, 19, 19, 0x000000, 1);
+		snakeBlack.events.onInputDown.add(this.saveData, ["snakeColor", "black"]);
 
         // Select Food Color
         selectFoodColor = game.add.text(450, 250, "Select color of the food: ", textStyle);
         selectFoodColor.anchor.set(1.0);
 
-        foodWhite = game.add.button(470, 232, 'square_white', this.saveData, ["foodColor", "white"]);
-        foodWhite.anchor.set(0.5);
-        foodBlack = game.add.button(510, 232, 'square_black', this.saveData, ["foodColor", "black"]);
-        foodBlack.anchor.set(0.5);
+		var foodWhite = Utils.createGraphicsButton(460, 222, 19, 19, 0xFFFFFF, 1);
+		foodWhite.events.onInputDown.add(this.saveData, ["foodColor", "white"]);
+
+		var foodBlack = Utils.createGraphicsButton(500, 222, 19, 19, 0x000000, 1);
+		foodBlack.events.onInputDown.add(this.saveData, ["foodColor", "black"]);
 
         // Select Background Color
         selectBgColor = game.add.text(450, 300, "Select background color: ", textStyle);
         selectBgColor.anchor.set(1.0);
 
-        bg_blue = game.add.button(470, 282, 'bg_blue', this.saveData, ["bg_color", "0x1AB0D2"]);
-        bg_blue.anchor.set(0.5);
-        bg_green = game.add.button(510, 282, 'bg_green', this.saveData, ["bg_color", "0x19C20E"]);
-        bg_green.anchor.set(0.5);
-        bg_red = game.add.button(550, 282, 'bg_red', this.saveData, ["bg_color", "0xF23810"]);
-        bg_red.anchor.set(0.5);
+		var bgBlue = Utils.createGraphicsButton(460, 272, 19, 19, 0x1AB0D2, 1);
+		bgBlue.events.onInputDown.add(this.saveData, ["bg_color", "0x1AB0D2"]);
+
+		var bgGreen = Utils.createGraphicsButton(500, 272, 19, 19, 0x19C20E, 1);
+		bgGreen.events.onInputDown.add(this.saveData, ["bg_color", "0x19C20E"]);
+
+		var bgRed = Utils.createGraphicsButton(540, 272, 19, 19, 0xF23810, 1);
+		bgRed.events.onInputDown.add(this.saveData, ["bg_color", "0xF23810"]);
 
         // Select Level
         selectLevel = game.add.text(450, 350, "Select level: ", textStyle);

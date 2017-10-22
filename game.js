@@ -48,10 +48,10 @@ var Game = {
         style = {font: "20px Courier New", fontWeight: "bold", fill: "#FFF", align: "center"};
 
         // Score
-        game.add.text(550, 20, "Score: ", style);
+        game.add.text(550, 20, strings.score + ": ", style);
         scoreTextValue = game.add.text(660, 20, score, style);
         // Level
-        game.add.text(550, 50, "Level: ", style);
+        game.add.text(550, 50, strings.level + ": ", style);
         speedTextValue = game.add.text(630, 50, level, style);
     },
 

@@ -15,6 +15,9 @@
 		"btnMedium": "Medium",
 		"btnHard": "Hard",
 		"btnImpossible": "Impossible", 
-		"btnBack" : "Back"
+		"btnBack": "Back",
+		"btnPlayAgain": "Play Again",
+		"btnHome": "Home",
+		"btnPlay": "Play"
 	}
 }

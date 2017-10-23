@@ -14,7 +14,8 @@ var Game_Over = {
         game.add.text(510, 350, score, { font: "35px Courier", fontWeight: "bold", fill: "#FFF" });
         
         if(score > parseInt(localStorage.getItem("bestScore"))) {
-            localStorage.setItem("bestScore", score);
+			localStorage.setItem("bestScore", score);
+			game.add.text(game.world.width / 2, 510, strings.newHighScore, { font: "52px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
         }
 
         game.add.text(275, 400, strings.bestScore + ": ", { font: "35px Courier", fontWeight: "bold", fill: "#FFF", align: "center"});

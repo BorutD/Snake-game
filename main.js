@@ -12,7 +12,6 @@ $.getJSON('lang/lang.json', function(result) {
 		console.log("Error getting lang.json");
 	} else {
 		strings = result.strings;
-		console.log(strings);
 	}
 });
 

@@ -1,6 +1,7 @@
 var snake, food, squareSize, score, speed, snakeColor, foodColor,
     updateDelay, direction, new_direction, levels, level,
-    addNew, cursors, scoreTextValue, speedTextValue, textStyle_Key, textStyle_Value;
+	addNew, cursors, scoreTextValue, speedTextValue, textStyle_Key, 
+	textStyle_Value, spaceKey, title, gamePaused;
 
 var Game = {
     preload: function () {
@@ -11,9 +12,10 @@ var Game = {
     create: function() {
         game.stage.backgroundColor = localStorage.getItem("bg_color");
 
-        /*var titleStyle = {font: "20px Courier New", fontWeight: "bold", fill: "#FFF", align: "center"};
-        title = game.add.text(400, 50, "Press 'space' to pause.", titleStyle);
-        title.anchor.set(0.5);*/
+        var titleStyle = {font: "20px Courier New", fontWeight: "bold", fill: "#FFF", align: "center"};
+		// title = game.add.text(400, 50, "Press 'space' to pause.", titleStyle);
+		title = game.add.text(400, 50, strings.spacePause, titleStyle);
+		title.anchor.set(0.5);
 
         snake = [];
         food = {};
@@ -52,58 +54,71 @@ var Game = {
         scoreTextValue = game.add.text(660, 20, score, style);
         // Level
         game.add.text(550, 50, strings.level + ": ", style);
-        speedTextValue = game.add.text(630, 50, level, style);
+		speedTextValue = game.add.text(630, 50, level, style);
+		
+		spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+		game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
+
+		gamePaused = false;
     },
 
     update: function() {
-        if (cursors.right.isDown && direction!='left') {
-            new_direction = 'right';
-        } else if (cursors.left.isDown && direction!='right') {
-            new_direction = 'left';
-        } else if (cursors.up.isDown && direction!='down') {
-            new_direction = 'up';
-        } else if (cursors.down.isDown && direction!='up') {
-            new_direction = 'down';
-        }
+		if(spaceKey.isDown && gamePaused == false) {
+			gamePaused = true;
+		} else if(spaceKey.isDown && gamePaused == true) {
+			gamePaused = false;
+		}
 
-        updateDelay++;
+        if(!gamePaused) {
+			if (cursors.right.isDown && direction!='left') {
+				new_direction = 'right';
+			} else if (cursors.left.isDown && direction!='right') {
+				new_direction = 'left';
+			} else if (cursors.up.isDown && direction!='down') {
+				new_direction = 'up';
+			} else if (cursors.down.isDown && direction!='up') {
+				new_direction = 'down';
+			}
 
-        if(updateDelay % (10 - levels[level]) == 0) {
-            var firstCell = snake[snake.length - 1],
-                lastCell = snake.shift(),
-                oldLastCellx = lastCell.x,
-                oldLastCelly = lastCell.y;
+			updateDelay++;
 
-            if(new_direction){
-                direction = new_direction;
-                new_direction = null;
-            }
-
-            if(direction == 'right') {
-                lastCell.x = firstCell.x + 20;
-                lastCell.y = firstCell.y;
-            } else if(direction == 'left') {
-                lastCell.x = firstCell.x - 20;
-                lastCell.y = firstCell.y;
-            } else if(direction == 'up') {
-                lastCell.x = firstCell.x;
-                lastCell.y = firstCell.y - 20;
-            } else if(direction == 'down') {
-                lastCell.x = firstCell.x;
-                lastCell.y = firstCell.y + 20;
-            }
-
-            snake.push(lastCell);
-            firstCell = lastCell;
-
-            if(addNew) {
-                snake.unshift(game.add.sprite(oldLastCellx, oldLastCelly, snakeColor));
-                addNew = false;
-            }
-            this.foodCollision();
-            this.selfCollision(firstCell);
-            this.wallCollision(firstCell);
-        }
+			if(updateDelay % (10 - levels[level]) == 0) {
+				var firstCell = snake[snake.length - 1],
+					lastCell = snake.shift(),
+					oldLastCellx = lastCell.x,
+					oldLastCelly = lastCell.y;
+	
+				if(new_direction){
+					direction = new_direction;
+					new_direction = null;
+				}
+	
+				if(direction == 'right') {
+					lastCell.x = firstCell.x + 20;
+					lastCell.y = firstCell.y;
+				} else if(direction == 'left') {
+					lastCell.x = firstCell.x - 20;
+					lastCell.y = firstCell.y;
+				} else if(direction == 'up') {
+					lastCell.x = firstCell.x;
+					lastCell.y = firstCell.y - 20;
+				} else if(direction == 'down') {
+					lastCell.x = firstCell.x;
+					lastCell.y = firstCell.y + 20;
+				}
+	
+				snake.push(lastCell);
+				firstCell = lastCell;
+	
+				if(addNew) {
+					snake.unshift(game.add.sprite(oldLastCellx, oldLastCelly, snakeColor));
+					addNew = false;
+				}
+				this.foodCollision();
+				this.selfCollision(firstCell);
+				this.wallCollision(firstCell);
+			}
+		}
     },
 
     createFood: function() {

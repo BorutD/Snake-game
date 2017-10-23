@@ -19,6 +19,7 @@
 		"btnPlayAgain": "Play Again",
 		"btnHome": "Home",
 		"btnPlay": "Play",
-		"newHighScore": "New High Score!!!"
+		"newHighScore": "New High Score!!!",
+		"spacePause": "Press spacebar to pause."
 	}
 }

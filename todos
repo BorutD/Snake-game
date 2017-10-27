@@ -2,8 +2,9 @@ Todos for Snake-game:
 - When the game is paused, add some visuals (like alpha effect)
 - Add an autoincrease, where the player will enter new level every 5 points.
 - Store high scores for all levels and not for just one.
-- Add an option that when a certain, special apple is eaten, the snake doesn't die when it hits the walls,
+- Add an option that when a certain, special apple is eaten, the snake doesn't die when it hits the wall,
 - For that special apple, show a timer for how long it will stay there.
 - Options for special apples:
-	- One very rare one, that increases the points by 10 (it shows up for like 5 seconds).
+	- One that's very rare and increases the points by 10 (it shows up for like 5 seconds).
 	- One that makes the snake increase and one to decrease the speed.
+	- One to change the color of the snake.

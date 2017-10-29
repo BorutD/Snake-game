@@ -1,7 +1,7 @@
 {
 	"strings" : {
 		"yourScore": "Your score",
-		"bestScore": "Best score",
+		"bestScore": "Best score level ",
 		"score": "Score",
 		"level": "Level",
 		"instructions": "Instructions",
@@ -19,7 +19,7 @@
 		"btnPlayAgain": "Play Again",
 		"btnHome": "Home",
 		"btnPlay": "Play",
-		"newHighScore": "New High Score!!!",
+		"newHighScore": "New Level High Score!!!",
 		"spacePause": "Press spacebar to pause."
 	}
 }

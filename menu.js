@@ -19,8 +19,17 @@ var Menu = {
         if(localStorage.getItem("level") == null) {
             localStorage.setItem("level", "Easy");
         }
-        if(localStorage.getItem("bestScore") == null) {
-            localStorage.setItem("bestScore", "0");
+        if(localStorage.getItem("bestScoreEasy") == null) {
+            localStorage.setItem("bestScoreEasy", "0");
+        }
+        if(localStorage.getItem("bestScoreMedium") == null) {
+            localStorage.setItem("bestScoreMedium", "0");
+        }
+        if(localStorage.getItem("bestScoreHard") == null) {
+            localStorage.setItem("bestScoreHard", "0");
+        }
+        if(localStorage.getItem("bestScoreImpossible") == null) {
+            localStorage.setItem("bestScoreImpossible", "0");
         }
         
 		bgColor = localStorage.getItem("bg_color");

@@ -12,14 +12,15 @@ var Game_Over = {
 
         game.add.text(275, 350, strings.yourScore + ": ", { font: "35px Courier", fontWeight: "bold", fill: "#FFF", align: "center"});
         game.add.text(510, 350, score, { font: "35px Courier", fontWeight: "bold", fill: "#FFF" });
-        
-        if(score > parseInt(localStorage.getItem("bestScore"))) {
-			localStorage.setItem("bestScore", score);
+		
+		var bestScoreLevelKey = "bestScore" + localStorage.getItem("level");
+        if(score > parseInt(localStorage.getItem(bestScoreLevelKey))) {
+			localStorage.setItem(bestScoreLevelKey, score);
 			game.add.text(game.world.width / 2, 510, strings.newHighScore, { font: "52px Courier", fontWeight: "bold", fill: "#FFF"}).anchor.set(0.5);
-        }
+		}
 
-        game.add.text(275, 400, strings.bestScore + ": ", { font: "35px Courier", fontWeight: "bold", fill: "#FFF", align: "center"});
-        game.add.text(510, 400, localStorage.getItem("bestScore"), { font: "35px Courier", fontWeight: "bold", fill: "#FFF" });
+        game.add.text(150, 400, strings.bestScore + localStorage.getItem("level") + ": ", { font: "35px Courier", fontWeight: "bold", fill: "#FFF", align: "center"});
+        game.add.text(615, 400, localStorage.getItem(bestScoreLevelKey), { font: "35px Courier", fontWeight: "bold", fill: "#FFF" });
     },
 
     startGame: function () {

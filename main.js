@@ -7,8 +7,8 @@ game.state.add('Settings', Settings);
 game.state.add('Instructions', Instructions);
 game.state.add('Game_Over', Game_Over);
 
-$.getJSON('lang/lang.json', function(result) {
-	if (result.Status && result.Status.ErrCode){
+$.getJSON('lang/lang.json', function (result) {
+	if (result.Status && result.Status.ErrCode) {
 		console.log("Error getting lang.json");
 	} else {
 		strings = result.strings;

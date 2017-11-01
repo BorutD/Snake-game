@@ -1,5 +1,5 @@
 {
-	"strings" : {
+	"strings": {
 		"yourScore": "Your score",
 		"bestScore": "Best score level ",
 		"score": "Score",
@@ -14,7 +14,7 @@
 		"btnEasy": "Easy",
 		"btnMedium": "Medium",
 		"btnHard": "Hard",
-		"btnImpossible": "Impossible", 
+		"btnImpossible": "Impossible",
 		"btnBack": "Back",
 		"btnPlayAgain": "Play Again",
 		"btnHome": "Home",
